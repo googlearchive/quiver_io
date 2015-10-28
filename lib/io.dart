@@ -18,7 +18,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:quiver/async.dart';
+import 'package:quiver_async/async.dart';
 
 /**
  * Converts a [Stream] of byte lists to a [String].
@@ -29,9 +29,9 @@ Future<String> byteStreamToString(Stream<List<int>> stream,
 }
 
 /**
- * Gets the full path of [path] by using [File.fullPathSync].
+ * Gets the full path of [path].
  */
-String getFullPath(path) => new File(path).resolveSymbolicLinksSync();
+String _getFullPath(path) => new File(path).resolveSymbolicLinksSync();
 
 /**
  * Lists the sub-directories and files of this Directory, optionally recursing
@@ -56,8 +56,8 @@ Future visitDirectory(Directory dir, Future<bool> visit(FileSystemEntity f)) {
             if (entity is Link) {
               if (FileSystemEntity.typeSync(entity.path, followLinks: true) ==
                   FileSystemEntityType.DIRECTORY) {
-                var fullPath = getFullPath(entity.path).toString();
-                var dirFullPath = getFullPath(dir.path).toString();
+                var fullPath = _getFullPath(entity.path).toString();
+                var dirFullPath = _getFullPath(dir.path).toString();
                 if (!dirFullPath.startsWith(fullPath)) {
                   _list(new Directory(entity.path));
                 }
