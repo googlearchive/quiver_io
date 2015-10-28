@@ -19,8 +19,9 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:path/path.dart' as path;
-import 'package:quiver/io.dart';
 import 'package:test/test.dart';
+
+import 'package:quiver_io/io.dart';
 
 main() {
   group('byteStreamToString', () {
