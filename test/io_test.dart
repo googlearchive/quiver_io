@@ -113,8 +113,10 @@ main() {
         files.add(e);
         return new Future.value(!e.path.endsWith('dir2'));
       }).then((_) {
-        expect(files.map((e) => e.path), unorderedEquals(
-            ["$testPath/dir", "$testPath/dir/file", "$testPath/dir2",]));
+        expect(
+            files.map((e) => e.path),
+            unorderedEquals(
+                ["$testPath/dir", "$testPath/dir/file", "$testPath/dir2",]));
       });
     });
 
