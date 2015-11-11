@@ -59,16 +59,14 @@ main() {
       if (testDir.existsSync()) testDir.deleteSync(recursive: true);
     });
 
-    /*
-     * Tests listing 7 cases of files, directories and links:
-     *   1. A file
-     *   2. A directory
-     *   3. A file in a directory
-     *   4. A link to a file
-     *   5. A link to a directory
-     *   6  A file in a directory, reached by a link to that directory
-     *   7. A broken link
-     */
+    // Tests listing 7 cases of files, directories and links:
+    //   1. A file
+    //   2. A directory
+    //   3. A file in a directory
+    //   4. A link to a file
+    //   5. A link to a directory
+    //   6  A file in a directory, reached by a link to that directory
+    //   7. A broken link
     test('should handle symlinks', () {
       new File(path.join(testPath, 'file_target')).createSync();
       new Directory(path.join(testPath, 'dir_target')).createSync();
