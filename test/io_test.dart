@@ -115,8 +115,11 @@ main() {
       }).then((_) {
         expect(
             files.map((e) => e.path),
-            unorderedEquals(
-                ["$testPath/dir", "$testPath/dir/file", "$testPath/dir2",]));
+            unorderedEquals([
+              "$testPath/dir",
+              "$testPath/dir/file",
+              "$testPath/dir2",
+            ]));
       });
     });
 
